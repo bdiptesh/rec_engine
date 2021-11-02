@@ -11,6 +11,7 @@
     1. [Programming style](./README.md#programming-style)
     1. [Version control](./README.md#version-control)
     1. [Contribution guidelines](./.github/CONTRIBUTING.md)
+    1. [Slack](https://join.slack.com/t/slack-alh8147/shared_invite/zt-xye4mwee-gSLttX5elyho4wrE0No8gg)
 1. [Project documents](./docs)
     1. [Approach](./docs/Approach.pdf)
 1. [Pull request guidelines](./.github/PULL_REQUEST_TEMPLATE.md)
