@@ -1,40 +1,46 @@
+"""
+Recommendation Engine File
+
+Credits
+-------
+::
+
+    Authors:
+        - Manavi
+
+    Date: Nov 8, 2021
+"""
+
+
 from typing import List, Dict
 
 import pandas as pd
+import numpy as np
 
 
-class _Recommendation():
+class Recommendation():
 
     """Short summary.
 
     Parameters
     ----------
     df_catalog : pd.DataFrame
-        Catalog contains the site of the restaurants with the ref
-
-
+        Catalog contains the site of the restaurants with the preferences 
     df_uid : pd.DataFrame
-        Description of parameter `df_uid`.
+        Contains the User ID along with the preferences in cuisine
     k : int
-        Description of parameter `k` (the default is 3).
+        The number of top recommendations that need to be given (the default is 3).
 
     Returns
     -------
     type
+    	op: Dictionary
+    		Output of User ID: int
+    		List of Site and respective Score
         Returns the sites with the scores of the recommended restaurants
 
-    Raises
-    ------
-    ExceptionName
-        Why the exception is raised.
-
-    Examples
-    --------
-    Examples should be written in doctest format, and
-    should illustrate how to use the function/class.
-    >>>
-
     """
+    
     
     def __init__(self,
                  df_catalog: pd.DataFrame,
@@ -46,43 +52,11 @@ class _Recommendation():
         self.list_catalog: Dict[int, List[int]] = dict()
         for i in range(len(self.df_catalog)):
             self.list_catalog[df_catalog.iloc[i,0]] = list(self.df_catalog.iloc[i, 1:6])
-        self.dict_uid: Dict[int, List[int]] = None
-        self.df_uid: Dict[int, List[int]] = dict()
+        self.dict_uid: Dict[int, List[int]] = dict()
         for i in range(len(self.df_uid)):
-            self.df_uid[df_uid.iloc[i,0]] = list(self.df_uid.iloc[i, 1:6])
+            self.dict_uid[df_uid.iloc[i,0]] = list(self.df_uid.iloc[i, 1:6])
         self.op = dict()
-
-    def rec(self):
-        """Short summary.
-
-        Returns
-        -------
-        type
-            Returning the output of recommended restaurants for the users.
-
-        Raises
-        ------
-        ExceptionName
-            Why the exception is raised.
-
-        Examples
-        --------
-        Examples should be written in doctest format, and
-        should illustrate how to use the function/class.
-        >>>
-
-        """
-        # Loop through users here
-        self.op = dict()
-        for i in self.df_uid:
-            if df_uid[i].count(1) == 0:
-                self.op[i] = []
-            else: 
-                self.op[i] = _top_rec(df_uid[i])
-        return self.op
-
-
-class RecommendationMatch(_Recommendation):
+    
     def _top_rec(self,
                  user: List[int]):
        	"""Short summary.
@@ -91,33 +65,39 @@ class RecommendationMatch(_Recommendation):
         -------
         type
             Returning a list of sorted items according to the scores. 
-            
-
-        Raises
-        ------
-        ExceptionName
-            Why the exception is raised.
-
-        Examples
-        --------
-        Examples should be written in doctest format, and
-        should illustrate how to use the function/class.
-        >>>
 
         """
         score = {}
         for j in self.list_catalog:
-            score[j] = np.count_nonzero((np.array(user) & np.array(list_catalog[j]))==1)/list_catalog[j].count(1)
+            score[j] = np.count_nonzero((np.array(user) & np.array(self.list_catalog[j]))==1)/user.count(1)
         sort_score = dict(sorted(score.items(), key=lambda x: x[1], reverse=True))
-        return (list(sort_score.items())[:self.k])
+        return(list(sort_score.items())[:self.k])
 
 
+    def rec(self):
+        """Short summary.
+
+        Returns
+        -------
+        type
+            op: Dictionary
+            Returning the output of recommended restaurants for the users.
+
+        """
+        # Loop through users here
+        self.op = dict()
+        for i in self.dict_uid:
+            if self.dict_uid[i].count(1) == 0:
+                self.op[i] = []
+            else: 
+                self.op[i] = self._top_rec(self.dict_uid[i])
+        return self.op
+  
 # =============================================================================
 # --- Main
-# =============================================================================
-
+# =============================================================================       
 df_catalog = pd.read_csv('/home/manavi/rec_engine-feature_01/data/input/catalog.csv')
 df_uid = pd.read_csv('/home/manavi/rec_engine-feature_01/data/input/users.csv')
 
-rec_obj = RecommendationMatch(df_catalog, df_uid,1)
+rec_obj = Recommendation(df_catalog, df_uid,3)
 rec_op = rec_obj.rec()
