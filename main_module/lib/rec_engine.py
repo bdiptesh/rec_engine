@@ -91,8 +91,7 @@ class Recommendation():  # pylint: disable=R0903
                 self.df_uid.iloc[i, 1:self.cols])
         self.op_var = dict()
         for i in self.dict_uid:
-            if self.dict_uid[i].count(1) == 0:
-                self.op_var[i] = []
-            else:
+            self.op_var[i] = list()
+            if self.dict_uid[i].count(1) != 0:
                 self.op_var[i] = self._top_rec(self.dict_uid[i])
         return self.op_var

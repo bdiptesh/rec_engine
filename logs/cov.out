@@ -1,6 +1,6 @@
 Name                                                               Stmts   Miss  Cover   Missing
 ------------------------------------------------------------------------------------------------
 /home/manavi/Desktop/rec_engine-feature_01/rec/lib/__init__.py         7      0   100%
-/home/manavi/Desktop/rec_engine-feature_01/rec/lib/rec_engine.py      31      1    97%   95
+/home/manavi/Desktop/rec_engine-feature_01/rec/lib/rec_engine.py      31      0   100%
 ------------------------------------------------------------------------------------------------
-TOTAL                                                                 38      1    97%
+TOTAL                                                                 38      0   100%
