@@ -61,12 +61,11 @@ CLI.add_argument("-u", "--users",
                  default=["users.csv"],
                  help="user preferences csv filename")
 
-# args = CLI.parse_args()
+args = CLI.parse_args()
 
-# fn_cat = args.catalog[0]
-# fn_uid = args.users[0]
-fn_cat = "catalog.csv"
-fn_uid = "users.csv"
+fn_cat = args.catalog[0]
+fn_uid = args.users[0]
+
 # =============================================================================
 # --- Main
 # =============================================================================
