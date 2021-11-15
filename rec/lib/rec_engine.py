@@ -16,7 +16,8 @@ from typing import List, Dict
 import pandas as pd
 import numpy as np
 
-class Recommendation():
+
+class Recommendation():  # pylint: disable=R0903
     """Short summary.
 
     Parameters
@@ -26,15 +27,15 @@ class Recommendation():
     df_uid : pd.DataFrame
         Contains the User ID along with the preferences in cuisine
     k : int
-        The number of top recommendations that need to be given (the default is 3).
+    The number of top recommendations that need to be given (the default is 3).
 
     Returns
     -------
     type
-    	op: Dictionary
-    		Output of User ID: int
-    		List of Site and respective Score
-        Returns the sites with the scores of the recommended restaurants
+    op: Dictionary
+    Output of User ID: int
+    List of Site and respective Score
+    Returns the sites with the scores of the recommended restaurants
 
     """
 
@@ -61,14 +62,16 @@ class Recommendation():
         """
         self.list_catalog: Dict[int, List[int]] = dict()
         for i in range(len(self.df_catalog)):
-            self.list_catalog[self.df_catalog.iloc[i, 0]] = list(self.df_catalog.iloc[i, 1:6])
+            self.list_catalog[self.df_catalog.iloc[i, 0]] = list(
+                self.df_catalog.iloc[i, 1:6])
         score = {}
         for j in self.list_catalog:
             score[j] = np.count_nonzero(
-                (np.array(user) & np.array(self.list_catalog[j])) == 1)/user.count(1)
-        sort_score = dict(sorted(score.items(), key=lambda x: x[1], reverse=True))
+                (np.array(user) & np.array(self.list_catalog[j])
+                 ) == 1)/user.count(1)
+        sort_score = dict(
+            sorted(score.items(), key=lambda x: x[1], reverse=True))
         return list(sort_score.items())[:self.k]
-
 
     def rec(self):
         """Short summary.
@@ -83,7 +86,8 @@ class Recommendation():
         # Loop through users here
         self.dict_uid: Dict[int, List[int]] = dict()
         for i in range(len(self.df_uid)):
-            self.dict_uid[self.df_uid.iloc[i, 0]] = list(self.df_uid.iloc[i, 1:6])
+            self.dict_uid[self.df_uid.iloc[i, 0]] = list(
+                self.df_uid.iloc[i, 1:6])
         self.op_var = dict()
         for i in self.dict_uid:
             if self.dict_uid[i].count(1) == 0:
