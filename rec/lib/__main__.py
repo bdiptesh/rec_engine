@@ -13,8 +13,8 @@ Credits
 
 from rec_engine import Recommendation, pd
 
-DFCATALOG = pd.read_csv('/home/manavi/rec_engine-feature_01/data/input/catalog.csv')
-DFUSER = pd.read_csv('/home/manavi/rec_engine-feature_01/data/input/users.csv')
+DFCATALOG = pd.read_csv('../../data/input/catalog.csv')
+DFUSER = pd.read_csv('../../data/input/users.csv')
 
 OBJ = Recommendation(DFCATALOG, DFUSER, 3)
 REC_OP = OBJ.rec()
