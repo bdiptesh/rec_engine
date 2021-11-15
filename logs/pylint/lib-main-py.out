@@ -1,15 +1,11 @@
 ************* Module main
-main.py:81:0: C0301: Line too long (114/100) (line-too-long)
-main.py:98:0: C0305: Trailing newlines (trailing-newlines)
+main.py:79:0: C0301: Line too long (114/100) (line-too-long)
+main.py:96:0: C0305: Trailing newlines (trailing-newlines)
 main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-main.py:2:0: E0401: Unable to import 'input_data' (import-error)
-main.py:43:8: C0103: Attribute name "op" doesn't conform to snake_case naming style (invalid-name)
-main.py:7:0: R0903: Too few public methods (1/2) (too-few-public-methods)
-main.py:1:0: W0611: Unused List imported from typing (unused-import)
-main.py:1:0: W0611: Unused Dict imported from typing (unused-import)
-main.py:3:0: C0411: third party import "import pandas as pd" should be placed before "from input_data import input_data" (wrong-import-order)
-main.py:4:0: C0411: third party import "from scipy import spatial" should be placed before "from input_data import input_data" (wrong-import-order)
+main.py:41:8: C0103: Attribute name "op" doesn't conform to snake_case naming style (invalid-name)
+main.py:38:24: E0602: Undefined variable 'input_data' (undefined-variable)
+main.py:5:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 
 ------------------------------------------------------------------
-Your code has been rated at 5.62/10 (previous run: 5.62/10, +0.00)
+Your code has been rated at 6.67/10 (previous run: 5.62/10, +1.04)
 

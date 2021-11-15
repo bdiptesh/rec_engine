@@ -1,8 +1,6 @@
-from typing import List, Dict
-from input_data import input_data
+
 import pandas as pd
 from scipy import spatial
-
 
 class Recommendation():
     """Short summary.
