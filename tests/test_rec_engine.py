@@ -60,7 +60,7 @@ class TestIntegrationRecommendationMatch(unittest.TestCase):
         """Set up for module ``rec_engine``."""
 
     def test_top_1(self):
-        """Recommendation: Test for top 1."""
+        """Recommendation: Test for top 1"""
         df_cat = pd.DataFrame({"restaurant": [1, 2, 3, 4, 5],
                                "chinese": [1, 0, 1, 0, 1],
                                "indian": [0, 1, 0, 1, 0],
@@ -71,7 +71,8 @@ class TestIntegrationRecommendationMatch(unittest.TestCase):
                                "sushi": [0, 0]})
         obj = RecommendationMatch(catalog=df_cat, user_preference=df_uid, k=1)
         op = obj.rec()
-        exp_op = {1: [[0, 1, 0.5]], 2: [[1, 1, 1.0]]}
+        op = op.values.tolist()
+        exp_op = [[1.0, 1.0, 1.0, 0.5], [2.0, 2.0, 1.0, 1.0]]
         self.assertEqual(op, exp_op)
 
 
