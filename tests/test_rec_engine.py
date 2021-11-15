@@ -69,9 +69,9 @@ class TestIntegrationRecommendationMatch(unittest.TestCase):
                                "chinese": [1, 0],
                                "indian": [1, 1],
                                "sushi": [0, 0]})
-        obj = Recommendation(df_cat, df_uid, k=1)
+        obj = Recommendation(df_cat, df_uid, k=2)
         op = obj.rec()
-        exp_op = {1: [[0, 1, 0.5]], 2: [[1, 1, 1.0]]}
+        exp_op = {1: [(1, 0.5), (2, 0.5)], 2: [(2, 1.0), (4, 1.0)]}
         self.assertEqual(op, exp_op)
 
 

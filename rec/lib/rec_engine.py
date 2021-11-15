@@ -49,6 +49,7 @@ class Recommendation():  # pylint: disable=R0903
         self.list_catalog = None
         self.dict_uid = None
         self.op_var = dict()
+        self.cols = len(df_catalog.columns)
 
     def _top_rec(self,
                  user: List[int]):
@@ -63,7 +64,7 @@ class Recommendation():  # pylint: disable=R0903
         self.list_catalog: Dict[int, List[int]] = dict()
         for i in range(len(self.df_catalog)):
             self.list_catalog[self.df_catalog.iloc[i, 0]] = list(
-                self.df_catalog.iloc[i, 1:6])
+                self.df_catalog.iloc[i, 1:self.cols])
         score = {}
         for j in self.list_catalog:
             score[j] = np.count_nonzero(
@@ -87,7 +88,7 @@ class Recommendation():  # pylint: disable=R0903
         self.dict_uid: Dict[int, List[int]] = dict()
         for i in range(len(self.df_uid)):
             self.dict_uid[self.df_uid.iloc[i, 0]] = list(
-                self.df_uid.iloc[i, 1:6])
+                self.df_uid.iloc[i, 1:self.cols])
         self.op_var = dict()
         for i in self.dict_uid:
             if self.dict_uid[i].count(1) == 0:
