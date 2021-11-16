@@ -30,7 +30,7 @@ path = re.sub(r"(.+)(\/tests.*)", "\\1", path)
 
 sys.path.insert(0, path)
 
-from rec.lib.rec_engine import Recommendation  # noqa: F841
+from rec.lib.rec_engine import RecommendationFun  # noqa: F841
 
 # =============================================================================
 # --- DO NOT CHANGE ANYTHING FROM HERE
@@ -69,9 +69,9 @@ class TestIntegrationRecommendationMatch(unittest.TestCase):
                                "chinese": [1, 0],
                                "indian": [1, 1],
                                "sushi": [0, 0]})
-        obj = Recommendation(df_cat, df_uid, k=2)
+        obj = RecommendationFun(df_cat, df_uid, k=1)
         op = obj.rec()
-        exp_op = {1: [(1, 0.5), (2, 0.5)], 2: [(2, 1.0), (4, 1.0)]}
+        exp_op = [[1.0, 1.0, 1.0, 0.5], [2.0, 2.0, 1.0, 1.0]]
         self.assertEqual(op, exp_op)
 
 
