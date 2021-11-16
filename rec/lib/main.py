@@ -3,6 +3,10 @@ import pandas as pd
 from scipy import spatial
 
 class Recommendation():
+    # pylint: disable=R0903
+    # pylint: disable=E0602
+    # pylint: disable=C0114
+    # pylint: disable=C0305
     """Short summary.
 
     Parameters
@@ -38,7 +42,7 @@ class Recommendation():
         self.inp_data = input_data()
         self.list_catalog_data, self.list_user_preferences = self.inp_data.pre_process_data()
         self.df_catalog, self.df_uid = self.inp_data.return_files()
-        self.op = None
+        self.op_var = None
 
 
     def rec(self):
@@ -62,7 +66,7 @@ class Recommendation():
 
         """
         # Loop through usesr here
-        self.op = []
+        self.op_var = []
         for each_user in self.list_user_preferences:
             user_id = list(each_user.keys())[0]
             prefs = each_user[user_id]
@@ -74,12 +78,12 @@ class Recommendation():
                 in_dict["user_id"] = user_id
                 in_dict["restaurant_id"] = rest_id
                 in_dict["match_score"] = similarity
-                self.op.append(in_dict)
-        distance_matrix = pd.DataFrame(self.op)
-        distance_matrix["rank"] = distance_matrix.groupby("user_id")["match_score"].rank("dense", ascending=False)
+                self.op_var.append(in_dict)
+        distance_matrix = pd.DataFrame(self.op_var)
+        distance_matrix["rank"] = distance_matrix.groupby("user_id")["match_score"] \
+        .rank("dense", ascending=False)
         distance_matrix = distance_matrix[(distance_matrix["rank"] <= self.k)]
         return distance_matrix
-
 
 # =============================================================================
 # --- Main

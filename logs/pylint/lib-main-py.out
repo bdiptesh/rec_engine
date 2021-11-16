@@ -1,11 +1,6 @@
 ************* Module main
-main.py:79:0: C0301: Line too long (114/100) (line-too-long)
-main.py:96:0: C0305: Trailing newlines (trailing-newlines)
 main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-main.py:41:8: C0103: Attribute name "op" doesn't conform to snake_case naming style (invalid-name)
-main.py:38:24: E0602: Undefined variable 'input_data' (undefined-variable)
-main.py:5:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 
 ------------------------------------------------------------------
-Your code has been rated at 6.67/10 (previous run: 6.67/10, +0.00)
+Your code has been rated at 9.67/10 (previous run: 9.67/10, +0.00)
 

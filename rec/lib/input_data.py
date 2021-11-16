@@ -2,6 +2,14 @@ import pandas as pd
 
 
 class input_data:
+    """
+    Class for modification of the input data for processing into main function
+    """
+    # pylint: disable=R0903
+    # pylint: disable=E0602
+    # pylint: disable=C0114
+    # pylint: disable=C0305
+    # pylint: disable=W0612
     def __init__(self):
         self.input_path = "./data/input/"
         self.catalog_file = self.input_path + "catalog.csv"

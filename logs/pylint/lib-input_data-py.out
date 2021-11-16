@@ -1,9 +1,7 @@
 ************* Module input_data
 input_data.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 input_data.py:4:0: C0103: Class name "input_data" doesn't conform to PascalCase naming style (invalid-name)
-input_data.py:4:0: C0115: Missing class docstring (missing-class-docstring)
-input_data.py:23:12: W0612: Unused variable 'index' (unused-variable)
 
 ------------------------------------------------------------------
-Your code has been rated at 9.13/10 (previous run: 8.91/10, +0.22)
+Your code has been rated at 9.57/10 (previous run: 9.13/10, +0.43)
 
