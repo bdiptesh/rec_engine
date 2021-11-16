@@ -31,7 +31,7 @@ class RecommendationFun():  # pylint: disable=R0903
     should illustrate how to use the function/class.
     >>>
     """
-    def __init__(self, df_cat, df_user, k : int = 3):
+    def __init__(self, df_cat, df_user, k: int = 3):
         self.df_catalog = df_cat
         self.df_uid = df_user
         self.k = k
@@ -78,8 +78,10 @@ class RecommendationFun():  # pylint: disable=R0903
                 list1.append(score_perc)
                 self.final1.append(list1)
         df_pre_final = pd.DataFrame(self.final1,
-                                    columns = ['User_id', 'Rest_id', 'Match', 'Score'])
-        df_final = df_pre_final.sort_values\
-            (['User_id', 'Score'], ascending = [ True, False]).groupby('User_id').head(self.k)
+                                    columns=['User_id', 'Rest_id', 'Match',
+                                             'Score'])
+        df_final = df_pre_final.sort_values(
+            ['User_id', 'Score'], ascending=[True, False]).\
+                groupby('User_id').head(self.k)
         self.final_list = df_final.values.tolist()
         return self.final_list
