@@ -7,5 +7,5 @@ main.py:38:24: E0602: Undefined variable 'input_data' (undefined-variable)
 main.py:5:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 
 ------------------------------------------------------------------
-Your code has been rated at 6.67/10 (previous run: 5.62/10, +1.04)
+Your code has been rated at 6.67/10 (previous run: 6.67/10, +0.00)
 

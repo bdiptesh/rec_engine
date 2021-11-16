@@ -2,20 +2,8 @@
 input_data.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 input_data.py:4:0: C0103: Class name "input_data" doesn't conform to PascalCase naming style (invalid-name)
 input_data.py:4:0: C0115: Missing class docstring (missing-class-docstring)
-input_data.py:12:4: C0116: Missing function or method docstring (missing-function-docstring)
-input_data.py:15:4: C0116: Missing function or method docstring (missing-function-docstring)
-input_data.py:21:12: C0103: Variable name "a" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:22:12: C0103: Variable name "b" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:23:12: C0103: Variable name "c" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:24:12: C0103: Variable name "d" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:25:12: C0103: Variable name "e" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:39:12: C0103: Variable name "a" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:40:12: C0103: Variable name "b" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:41:12: C0103: Variable name "c" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:42:12: C0103: Variable name "d" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:43:12: C0103: Variable name "e" doesn't conform to snake_case naming style (invalid-name)
-input_data.py:17:12: W0612: Unused variable 'index' (unused-variable)
+input_data.py:23:12: W0612: Unused variable 'index' (unused-variable)
 
 ------------------------------------------------------------------
-Your code has been rated at 6.52/10 (previous run: 6.52/10, +0.00)
+Your code has been rated at 9.13/10 (previous run: 8.91/10, +0.22)
 
