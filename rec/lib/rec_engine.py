@@ -5,6 +5,8 @@ This is a temporary script file.
 """
 import pandas as pd
 import numpy as np
+
+
 class RecommendationFun():  # pylint: disable=R0903
     """Short summary.
 
@@ -82,6 +84,6 @@ class RecommendationFun():  # pylint: disable=R0903
                                              'Score'])
         df_final = df_pre_final.sort_values(
             ['User_id', 'Score'], ascending=[True, False]).\
-                groupby('User_id').head(self.k)
+            groupby('User_id').head(self.k)
         self.final_list = df_final.values.tolist()
         return self.final_list
