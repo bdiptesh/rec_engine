@@ -11,7 +11,7 @@ Credits
     Date: Nov 8, 2021
 """
 
-from typing import List, Dict
+from typing import List
 
 import pandas as pd
 import numpy as np
@@ -46,8 +46,10 @@ class Recommendation():  # pylint: disable=R0903
         self.df_catalog = df_catalog
         self.df_uid = df_uid
         self.k = k
-        self.list_catalog = None
-        self.dict_uid = None
+        self.list_catalog = df_catalog.set_index(df_catalog.columns[0])\
+            .T.to_dict('list')
+        self.dict_uid = df_uid.set_index(df_uid.columns[0])\
+            .T.to_dict('list')
         self.op_var = dict()
         self.cols = len(df_catalog.columns)
 
@@ -61,10 +63,6 @@ class Recommendation():  # pylint: disable=R0903
             Returning a list of sorted items according to the scores.
 
         """
-        self.list_catalog: Dict[int, List[int]] = dict()
-        for i in range(len(self.df_catalog)):
-            self.list_catalog[self.df_catalog.iloc[i, 0]] = list(
-                self.df_catalog.iloc[i, 1:self.cols])
         score = {}
         for j in self.list_catalog:
             score[j] = np.count_nonzero(
@@ -85,10 +83,6 @@ class Recommendation():  # pylint: disable=R0903
 
         """
         # Loop through users here
-        self.dict_uid: Dict[int, List[int]] = dict()
-        for i in range(len(self.df_uid)):
-            self.dict_uid[self.df_uid.iloc[i, 0]] = list(
-                self.df_uid.iloc[i, 1:self.cols])
         self.op_var = dict()
         for i in self.dict_uid:
             self.op_var[i] = list()

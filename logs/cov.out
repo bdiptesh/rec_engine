@@ -1,6 +1,6 @@
 Name                                                             Stmts   Miss  Cover   Missing
 ----------------------------------------------------------------------------------------------
 /home/manavi/Documents/GitHub/rec_engine/rec/__init__.py             7      0   100%
-/home/manavi/Documents/GitHub/rec_engine/rec/lib/rec_engine.py      31      0   100%
+/home/manavi/Documents/GitHub/rec_engine/rec/lib/rec_engine.py      25      0   100%
 ----------------------------------------------------------------------------------------------
-TOTAL                                                               38      0   100%
+TOTAL                                                               32      0   100%
