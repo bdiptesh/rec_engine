@@ -1,0 +1,10 @@
+************* Module rec_engine
+rec_engine.py:47:0: C0303: Trailing whitespace (trailing-whitespace)
+rec_engine.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+rec_engine.py:2:0: W0611: Unused pandas imported as pd (unused-import)
+rec_engine.py:4:0: C0411: standard import "import operator" should be placed before "import pandas as pd" (wrong-import-order)
+rec_engine.py:7:0: C0411: standard import "import os" should be placed before "import pandas as pd" (wrong-import-order)
+
+------------------------------------------------------------------
+Your code has been rated at 8.21/10 (previous run: 8.21/10, +0.00)
+

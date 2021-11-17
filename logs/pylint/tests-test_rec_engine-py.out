@@ -1,0 +1,6 @@
+************* Module test_rec_engine
+test_rec_engine.py:84:0: C0304: Final newline missing (missing-final-newline)
+
+------------------------------------------------------------------
+Your code has been rated at 9.66/10 (previous run: 9.66/10, +0.00)
+
