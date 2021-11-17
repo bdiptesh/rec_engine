@@ -1,12 +1,6 @@
-
-import pandas as pd
-from scipy import spatial
 import operator
-
-
 import os
-
-os.chdir("/Users/ravi.kolluri/Documents/GitHub/rec_engine/")
+from scipy import spatial
 
 class Recommendation():
     # pylint: disable=R0903
@@ -43,7 +37,7 @@ class Recommendation():
     """
 
     def __init__(self, df_cat, df_user,
-                 k : int = 3):
+                 k:int = 3):
         
 
         self.df_catalog = df_cat
@@ -55,7 +49,6 @@ class Recommendation():
             T.to_dict('list')
         self.k = k
         self.op_var = None
-
 
     def rec(self):
         """Short summary.
@@ -88,9 +81,6 @@ class Recommendation():
                 rest_catalog = cuisine
                 similarity =  spatial.distance.cosine(prefs, rest_catalog)
                 in_dict[rest_id] = similarity
-            sorted_d = sorted(in_dict.items(), key=operator.itemgetter(1),reverse=True)
+            sorted_d = sorted(in_dict.items(), key=operator.itemgetter(1), reverse=True)
             self.op_var[user_id] = sorted_d[0:self.k]
         return self.op_var
-
-
-
